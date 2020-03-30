@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "485611316223",
+    "firebase_url": "https://the-world-saviour.firebaseio.com",
+    "project_id": "the-world-saviour",
+    "storage_bucket": "the-world-saviour.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:485611316223:android:dfc96744a6d295a463fdca",
+        "android_client_info": {
+          "package_name": "com.godknows.covid19"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "485611316223-226uo052229hflra4majn8i54k8hvt48.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0h2Pa9kwIzu1h7T0b8-OF7AR-yy0mnaI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "485611316223-226uo052229hflra4majn8i54k8hvt48.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
