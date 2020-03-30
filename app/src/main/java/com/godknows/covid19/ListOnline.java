@@ -156,11 +156,6 @@ public class ListOnline extends AppCompatActivity implements GoogleApiClient.Con
             protected void onBindViewHolder(@NonNull ListOnlineViewHolder holder, int position, @NonNull final User model) {
                 holder.txtEmail.setText(model.getEmail());
                 Toast.makeText(ListOnline.this, "Click444ed", Toast.LENGTH_SHORT).show();
-                Intent map = new Intent(ListOnline.this,Tracking_Activity.class);
-                map.putExtra("email",model.getEmail());
-                map.putExtra("lat",mlocation.getLatitude());
-                map.putExtra("lng",mlocation.getLongitude());
-                startActivity(map);
                 holder.itemClickListener1=new itemClickListener() {
                     @Override
                     public void onClick(View view, int position) {
