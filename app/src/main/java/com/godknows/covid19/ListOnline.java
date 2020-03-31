@@ -38,7 +38,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import com.google.android.gms.location.LocationListener;
 
-public class ListOnline extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks,GoogleApiClient.OnConnectionFailedListener, LocationListener {
+public class ListOnline extends AppCompatActivity implements  GoogleApiClient.ConnectionCallbacks,GoogleApiClient.OnConnectionFailedListener, LocationListener{
 
     private static final long UPDATE_TIME = 5000;
     private static final long FASTEST_INTERVAL = 3000;
@@ -92,6 +92,8 @@ public class ListOnline extends AppCompatActivity implements GoogleApiClient.Con
                 displayLocation();
             }
         }
+        startService(new Intent(this,MyService.class));
+        //adapter.startListening();
 
     }
 
@@ -150,26 +152,17 @@ public class ListOnline extends AppCompatActivity implements GoogleApiClient.Con
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("lastOnline"), User.class)
                         .build();
         //
-
         adapter= new FirebaseRecyclerAdapter<User, ListOnlineViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull ListOnlineViewHolder holder, int position, @NonNull final User model) {
                 holder.txtEmail.setText(model.getEmail());
                 Toast.makeText(ListOnline.this, "Click444ed", Toast.LENGTH_SHORT).show();
-                holder.itemClickListener1=new itemClickListener() {
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View view, int position) {
-                        Toast.makeText(ListOnline.this, "Clicked", Toast.LENGTH_SHORT).show();
-                        if(!model.getEmail().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail())){
-                            Intent map = new Intent(ListOnline.this,Tracking_Activity.class);
-                            map.putExtra("email",model.getEmail());
-                            map.putExtra("lat",mlocation.getLatitude());
-                            map.putExtra("lng",mlocation.getLongitude());
-                            startActivity(map);
-
-                        }
+                    public void onClick(View v) {
+                        startActivity(new Intent(getApplicationContext(),Tracking_Activity.class));
                     }
-                };
+                });
                 //holder.setItemClickListener(holder.itemClickListener1);
             }
 
@@ -182,7 +175,6 @@ public class ListOnline extends AppCompatActivity implements GoogleApiClient.Con
                 return new ListOnlineViewHolder(view);
             }
         };
-        adapter.startListening();
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
@@ -213,6 +205,12 @@ public class ListOnline extends AppCompatActivity implements GoogleApiClient.Con
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
         checkPlayServices();
@@ -221,10 +219,11 @@ public class ListOnline extends AppCompatActivity implements GoogleApiClient.Con
     @Override
     protected void onStop() {
         super.onStop();
+
         adapter.stopListening();
-//        if(googleApiClient!=null){
-//            googleApiClient.disconnect();
-//        }
+        if(googleApiClient!=null){
+            googleApiClient.disconnect();
+        }
     }
     //
     private void setupSystem()  {
@@ -285,21 +284,6 @@ public class ListOnline extends AppCompatActivity implements GoogleApiClient.Con
         displayLocation();
     }
 
-//    @Override
-//    public void onStatusChanged(String provider, int status, Bundle extras) {
-//
-//    }
-
-//    @Override
-//    public void onProviderEnabled(String provider) {
-//
-//    }
-
-//    @Override
-//    public void onProviderDisabled(String provider) {
-//
-//    }
-
     @Override
     public void onConnected(@Nullable Bundle bundle) {
         displayLocation();
@@ -323,4 +307,9 @@ public class ListOnline extends AppCompatActivity implements GoogleApiClient.Con
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
+
+//    @Override
+//    public void onClick1(View view, int position) {
+//
+//    }
 }

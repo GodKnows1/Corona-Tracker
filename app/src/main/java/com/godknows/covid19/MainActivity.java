@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
                 );
             }
         });
+        startService(new Intent(this,MyService.class));
     }
 
     @Override
