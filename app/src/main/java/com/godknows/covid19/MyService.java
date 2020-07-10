@@ -35,9 +35,9 @@ public class MyService extends Service {
                 i.putExtra("coordinates", location.getLongitude() + " " + location.getLatitude());
                 //sendBroadcast(i);
                 locations= FirebaseDatabase.getInstance().getReference("Locations");
-                locations.child("DbSmAxparkSIMIWDlcQOnip79AF3")
+                locations.child("123")
                         .setValue(new Tracking("123",
-                                "DbSmAxparkSIMIWDlcQOnip79AF3",
+                                "123",
                                 String.valueOf(location.getLatitude()),
                                 String.valueOf(location.getLongitude())));
             }

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".Reset_pass"
     android:focusableInTouchMode="true"
     android:gravity="center"
     android:layout_gravity="center"><!--
@@ -56,9 +56,9 @@
             </RelativeLayout>
 
             <EditText
-                android:id="@+id/editTextEmail"
+                android:id="@+id/editTextEmail1"
                 style="@style/modifiedEditText"
-                android:layout_marginTop="15sp"
+                android:layout_marginTop="20sp"
                 android:hint="@string/login_email_hint"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
@@ -66,33 +66,16 @@
                 android:textColorHint="@color/black"
                 android:textSize="24sp" />
 
-            <EditText
-                android:id="@+id/editTextPassword"
-                style="@style/modifiedEditText"
-                android:hint="@string/login_password_hint"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textSize="24sp"/>
 
-            <TextView
-                android:id="@+id/reset_pass"
-                style="@style/viewParent"
-                android:layout_gravity="end"
-                android:layout_marginTop="10dp"
-                android:text="Forgot Password?"
-                android:textColor="@color/colorAccent"
-                android:textSize="12sp" />x
 
             <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
-                android:id="@+id/cirLoginButton"
+                android:id="@+id/cirLoginButton1"
                 style="@style/loginButton"
                 app:spinning_bar_width="4dp"
                 app:spinning_bar_color="#FFF"
-                android:text="Login"
+                android:text="Reset Password"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="40dp"
                 app:spinning_bar_padding="6dp"
                 app:initialCornerAngle="27dp"/>
 
