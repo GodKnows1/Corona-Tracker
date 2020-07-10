@@ -12,4 +12,4 @@ Let me guide you how
 # Idea
 
 <image src="Capture.PNG" width="600">
-The idea was that hospital will change in databases the status i.e Fit, Quarantine, Affected and the App while fetching the data will check that the person is near u or not which is not fit else will not show. For now everyone is quarantined by default.If any queries in project you can contact.
+The idea was that hospital will change in databases the status i.e Fit, Quarantine, Affected and the App while fetching the data will check that the person is near u or not which is not fit else will not show. For now everyone is quarantined by default.
